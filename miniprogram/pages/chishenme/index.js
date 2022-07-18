@@ -15,9 +15,11 @@ Page({
     },
 
     onLoad() {
+        const foodNameStr = wx.getStorageSync('foodNameStr');
         this.setData({
-            textAreaValue: this.data.textAreaValueList.join('，')
-        })
+            textAreaValue: foodNameStr || this.data.textAreaValueList.join('，'),
+            textAreaValueList: foodNameStr ? foodNameStr.split('，') : this.data.textAreaValueList
+        });
     },
 
     start() {
@@ -58,7 +60,8 @@ Page({
 
       // 自定义食物名称
       onOk() {
-          clearInterval(this.data.timer)
+          clearInterval(this.data.timer);
+          wx.setStorageSync('foodNameStr', this.data.textAreaValue);
           this.setData({
             showBtn: false,
             changeBtn: false,
@@ -73,6 +76,7 @@ Page({
       onModal() {
           this.setData({
             visible: !this.data.visible,
+            textAreaValue: this.data.textAreaValueList.join('，')
           })
       }
   });
