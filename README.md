@@ -3,7 +3,7 @@
 一款解决不知道吃什么的微信小程序
 
 # 主界面
-![架构图](./images/main_interface.jpg)
+![主界面](./miniprogram/images/main_interface.jpg)
 
 # 体验地址
 
