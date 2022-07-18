@@ -38,3 +38,8 @@ page {
     line-height: 80rpx;
     background-color: #07c160;
 }
+
+.addFoodName {
+    margin-top: 30px;
+    color: #2440b3;
+}
