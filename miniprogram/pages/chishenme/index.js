@@ -78,6 +78,19 @@ Page({
             visible: !this.data.visible,
             textAreaValue: this.data.textAreaValueList.join('，')
           })
+      },
+
+      // 退出程序
+      onHide() {
+          clearInterval(this.data.timer);
+          this.setData({
+            showBtn: false,
+            changeBtn: false,
+            foodName: '',
+            timer: null,
+            visible: false,
+            textAreaValue: '',
+          })
       }
   });
   
