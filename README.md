@@ -5,5 +5,7 @@
 # 主界面
 ![主界面](./miniprogram/images/main_interface.jpg)
 
+![运行界面](./miniprogram/images/running.jpg)
+
 # 体验地址
 
