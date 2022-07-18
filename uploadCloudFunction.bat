@@ -1,1 +1,0 @@
-"D:\myPrograms\微信web开发者工具\cli.bat" cloud functions deploy --e lzengp-4gmy7whie95ec0b3 --n quickstartFunctions --r --project "E:\MyWechatApplet\chishenme" --report_first --report
