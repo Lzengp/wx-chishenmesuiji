@@ -8,4 +8,4 @@
 ![运行界面](./miniprogram/images/running.jpg)
 
 # 体验地址
-
+![小程序二维码](./miniprogram/images/applet_qrcode.jpg)
