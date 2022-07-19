@@ -5,5 +5,5 @@
 # 主界面
 ![主界面](./miniprogram/images/chishenme.gif)
 
-# 体验地址
+# 小程序地址
 ![小程序二维码](./miniprogram/images/applet_qrcode.jpg)
