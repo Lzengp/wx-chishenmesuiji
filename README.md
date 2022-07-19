@@ -7,3 +7,6 @@
 
 # 小程序地址
 ![小程序二维码](./miniprogram/images/applet_qrcode.jpg)
+
+# 其他
+需要将project.config文件中的appid改成自己的
