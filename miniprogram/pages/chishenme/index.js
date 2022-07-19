@@ -91,6 +91,9 @@ Page({
             visible: false,
             textAreaValue: '',
           })
-      }
+      },
+
+      // 设置分享
+      onShareAppMessage() { }
   });
   
