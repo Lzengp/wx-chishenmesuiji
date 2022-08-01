@@ -18,6 +18,7 @@ page {
     font-weight: 500;
     color: #000000;
     font-size: 44rpx;
+    z-index: 10;
 }
 
 .name {
@@ -26,6 +27,8 @@ page {
     font-weight: 500;
     font-size: 44rpx;
     color: #FF9733;
+    background-color: #eeeeee;
+    z-index: 10;
 }
 
 .button {
@@ -37,9 +40,11 @@ page {
     border-radius: 5px;
     line-height: 80rpx;
     background-color: #07c160;
+    z-index: 10;
 }
 
 .addFoodName {
     margin-top: 30px;
     color: #2440b3;
+    z-index: 10;
 }
