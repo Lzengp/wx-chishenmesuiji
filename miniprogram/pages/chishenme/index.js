@@ -20,6 +20,29 @@ Page({
             textAreaValue: foodNameStr || this.data.textAreaValueList.join('，'),
             textAreaValueList: foodNameStr ? foodNameStr.split('，') : this.data.textAreaValueList
         });
+        let videoAd = null
+        // 在页面onLoad回调事件中创建激励视频广告实例
+        if (wx.createRewardedVideoAd) {
+            videoAd = wx.createRewardedVideoAd({
+            adUnitId: 'adunit-fe34925b1de404e5'
+            })
+            videoAd.onLoad(() => {})
+            videoAd.onError((err) => {
+            console.error('激励视频光告加载失败', err)
+            })
+            videoAd.onClose((res) => {})
+        }
+        // 用户触发广告后，显示激励视频广告
+        if (videoAd) {
+            videoAd.show().catch(() => {
+            // 失败重试
+            videoAd.load()
+                .then(() => videoAd.show())
+                .catch(err => {
+                console.error('激励视频 广告显示失败', err)
+                })
+            })
+        }
     },
 
     start() {
