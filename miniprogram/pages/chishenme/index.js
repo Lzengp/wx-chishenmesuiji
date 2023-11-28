@@ -14,6 +14,16 @@ Page({
       textAreaValue: '',
     },
 
+    adLoad() {
+        console.log('Banner 广告加载成功')
+      },
+    adError(err) {
+        console.error('Banner 广告加载失败', err)
+      },
+    adClose() {
+        console.log('Banner 广告关闭')
+    },
+
     onLoad() {
         const foodNameStr = wx.getStorageSync('foodNameStr');
         this.setData({
@@ -42,6 +52,17 @@ Page({
                 console.error('激励视频 广告显示失败', err)
                 })
             })
+        }
+        let interstitialAd = null
+        if (wx.createInterstitialAd) {
+            interstitialAd = wx.createInterstitialAd({
+              adUnitId: 'adunit-b67019cfb4a46b23'
+            })
+            interstitialAd.onLoad(() => {})
+            interstitialAd.onError((err) => {
+              console.error('插屏广告加载失败', err)
+            })
+            interstitialAd.onClose(() => {})
         }
     },
 

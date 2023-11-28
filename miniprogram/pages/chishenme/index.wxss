@@ -7,9 +7,7 @@ page {
 }
 
 .container {
-    position: absolute;
-    top: 30%;
-    left: 20%;
+    margin-top: 40%;
     background-color: #eeeeee;
 }
 

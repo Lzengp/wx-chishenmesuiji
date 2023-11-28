@@ -11,4 +11,6 @@
     <modal wx:if="{{visible}}" title="自定义食物名称" bindconfirm="onOk" bindcancel="onModal">
         <textarea type="text" placeholder="用逗号隔开" model:value="{{textAreaValue}}" />
     </modal>
+    <view style="height: 100px"></view>
+    <ad unit-id="adunit-1363f56fcf2f7bac" bindload="adLoad" binderror="adError" bindclose="adClose"></ad>
 </view>
