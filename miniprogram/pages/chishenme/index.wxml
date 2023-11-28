@@ -1,6 +1,6 @@
 <!--index.wxml-->
 <view class="container">
-    <view class="title">中午吃什么，{{ changeBtn ? '吃这个！' : '吃什么？'}}</view>
+    <view class="title">{{timeText}}吃什么，{{ changeBtn ? '吃这个！' : '吃什么？'}}</view>
     <view class="name">{{foodName}}</view>
     <view class="button" bindtap="start" wx:if="{{!showBtn}}">{{ changeBtn ? '换一个' : '开始'}}</view>
     <view class="button" bindtap="stop" wx:if="{{showBtn}}">停止</view>
