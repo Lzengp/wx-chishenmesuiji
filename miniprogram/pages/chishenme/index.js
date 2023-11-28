@@ -53,17 +53,17 @@ Page({
                 })
             })
         }
-        let interstitialAd = null
-        if (wx.createInterstitialAd) {
-            interstitialAd = wx.createInterstitialAd({
-              adUnitId: 'adunit-b67019cfb4a46b23'
-            })
-            interstitialAd.onLoad(() => {})
-            interstitialAd.onError((err) => {
-              console.error('插屏广告加载失败', err)
-            })
-            interstitialAd.onClose(() => {})
-        }
+        // let interstitialAd = null
+        // if (wx.createInterstitialAd) {
+        //     interstitialAd = wx.createInterstitialAd({
+        //       adUnitId: 'adunit-b67019cfb4a46b23'
+        //     })
+        //     interstitialAd.onLoad(() => {})
+        //     interstitialAd.onError((err) => {
+        //       console.error('插屏广告加载失败', err)
+        //     })
+        //     interstitialAd.onClose(() => {})
+        // }
     },
 
     start() {
