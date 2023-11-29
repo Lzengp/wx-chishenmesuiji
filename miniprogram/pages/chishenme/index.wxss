@@ -11,6 +11,7 @@ page {
     padding-top: 70%;
     height: 100%;
     background-color: #eeeeee;
+    background-size: 100% 100%;
     background-image: url('https://lzengp.top/img/bg.png');
 }
 
