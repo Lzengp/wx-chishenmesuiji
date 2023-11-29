@@ -43,24 +43,6 @@ Page({
             textAreaValueList: foodNameStr ? foodNameStr.split('，') : this.data.textAreaValueList,
             timeText: timeStr,
         });
-        this.createRewardedVideoAd();
-        // wx.startAccelerometer({
-        //     interval: 'game',
-        //     success: () => {
-        //         wx.onAccelerometerChange((res) => {
-        //             if (res.x > 3 || res.y > 3 || res.z > 3) {
-        //                 that.start();
-        //                 setTimeout(() => {
-        //                     that.stop();
-        //                 }, 3000);
-        //             }
-        //         })
-        //     }
-        // })
-    },
-
-    // 广告
-    createRewardedVideoAd() {
         let videoAd = null
         // 在页面onLoad回调事件中创建激励视频广告实例
         if (wx.createRewardedVideoAd) {
@@ -84,17 +66,19 @@ Page({
                 })
             })
         }
-        // let interstitialAd = null
-        // if (wx.createInterstitialAd) {
-        //     interstitialAd = wx.createInterstitialAd({
-        //       adUnitId: 'adunit-b67019cfb4a46b23'
-        //     })
-        //     interstitialAd.onLoad(() => {})
-        //     interstitialAd.onError((err) => {
-        //       console.error('插屏广告加载失败', err)
-        //     })
-        //     interstitialAd.onClose(() => {})
-        // }
+        // wx.startAccelerometer({
+        //     interval: 'game',
+        //     success: () => {
+        //         wx.onAccelerometerChange((res) => {
+        //             if (res.x > 3 || res.y > 3 || res.z > 3) {
+        //                 that.start();
+        //                 setTimeout(() => {
+        //                     that.stop();
+        //                 }, 3000);
+        //             }
+        //         })
+        //     }
+        // })
     },
 
     start() {
