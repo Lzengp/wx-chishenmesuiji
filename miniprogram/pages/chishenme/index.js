@@ -10,33 +10,32 @@ Page({
       timer: null,
       randomTextList: [],
       visible: false,
-      textAreaValueList: ['馄饨', '拉面', '烩面', '热干面', '刀削面', '油泼面', '炸酱面', '火锅','北京烤鸭','兰州拉面','四川串串香','重庆酸辣粉','武汉热干面','西安肉夹馍','长沙小龙虾','广东肠粉','小笼包','广西桂林米粉','柳州螺蛳粉','天津煎饼果子'],
+      textAreaValueList: ['馄饨', '拉面', '烩面', '热干面', '刀削面', '油泼面', '炸酱面', '火锅','北京烤鸭','兰州拉面','四川串串香','重庆酸辣粉','武汉热干面','西安肉夹馍','长沙小龙虾','广东肠粉','小笼包','广西桂林米粉','柳州螺蛳粉','天津煎饼果子','肯德基','麦当劳','重庆小面','鲍师傅','湘菜'],
       textAreaValue: '',
       timeText: '',
     },
 
     adLoad() {
         console.log('Banner 广告加载成功')
-      },
+    },
     adError(err) {
         console.error('Banner 广告加载失败', err)
-      },
+    },
     adClose() {
         console.log('Banner 广告关闭')
     },
 
     onLoad() {
-        const that = this;
         const foodNameStr = wx.getStorageSync('foodNameStr');
         const date = new Date();
         let timeStr = '';
-        if (date.getHours() >= 6 && date.getHours() < 12) {
+        if (date.getHours() >= 4 && date.getHours() < 10) {
             timeStr = '早上';
-        } else if (date.getHours() >= 12 && date.getHours() < 18) {
+        } else if (date.getHours() >= 10 && date.getHours() < 16) {
             timeStr = '中午';
-        } else if (date.getHours() >= 18 && date.getHours() < 24) {
+        } else if (date.getHours() >= 16 && date.getHours() < 22) {
             timeStr = '晚上';
-        } else if (date.getHours() >= 0 && date.getHours() < 6) {
+        } else if (date.getHours() >= 22 && date.getHours() < 4) {
             timeStr = '夜宵';
         }
         this.setData({
@@ -44,6 +43,7 @@ Page({
             textAreaValueList: foodNameStr ? foodNameStr.split('，') : this.data.textAreaValueList,
             timeText: timeStr,
         });
+        this.createRewardedVideoAd();
         // wx.startAccelerometer({
         //     interval: 'game',
         //     success: () => {
@@ -57,6 +57,44 @@ Page({
         //         })
         //     }
         // })
+    },
+
+    // 广告
+    createRewardedVideoAd() {
+        let videoAd = null
+        // 在页面onLoad回调事件中创建激励视频广告实例
+        if (wx.createRewardedVideoAd) {
+            videoAd = wx.createRewardedVideoAd({
+            adUnitId: 'adunit-fe34925b1de404e5'
+            })
+            videoAd.onLoad(() => {})
+            videoAd.onError((err) => {
+            console.error('激励视频光告加载失败', err)
+            })
+            videoAd.onClose((res) => {})
+        }
+        // 用户触发广告后，显示激励视频广告
+        if (videoAd) {
+            videoAd.show().catch(() => {
+            // 失败重试
+            videoAd.load()
+                .then(() => videoAd.show())
+                .catch(err => {
+                console.error('激励视频 广告显示失败', err)
+                })
+            })
+        }
+        // let interstitialAd = null
+        // if (wx.createInterstitialAd) {
+        //     interstitialAd = wx.createInterstitialAd({
+        //       adUnitId: 'adunit-b67019cfb4a46b23'
+        //     })
+        //     interstitialAd.onLoad(() => {})
+        //     interstitialAd.onError((err) => {
+        //       console.error('插屏广告加载失败', err)
+        //     })
+        //     interstitialAd.onClose(() => {})
+        // }
     },
 
     start() {
