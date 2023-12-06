@@ -29,13 +29,14 @@ Page({
         const foodNameStr = wx.getStorageSync('foodNameStr');
         const date = new Date();
         let timeStr = '';
-        if (date.getHours() >= 4 && date.getHours() < 10) {
+        const hours = date.getHours();
+        if (hours >= 4 && hours < 10) {
             timeStr = '早上';
-        } else if (date.getHours() >= 10 && date.getHours() < 16) {
+        } else if (hours >= 10 && hours < 16) {
             timeStr = '中午';
-        } else if (date.getHours() >= 16 && date.getHours() < 22) {
+        } else if (hours >= 16 && hours < 22) {
             timeStr = '晚上';
-        } else if (date.getHours() >= 22 && date.getHours() < 4) {
+        } else if (hours >= 22 || hours < 4) {
             timeStr = '夜宵';
         }
         this.setData({
@@ -81,8 +82,17 @@ Page({
         // })
     },
 
+    getData() {
+        wx.request({ 
+            url: 'http://110.42.246.29:8001/apiL/comment/getComments/133', 
+            method: 'GET', 
+            success: function (res) { console.log('gggggggggg', res) } 
+        })
+    },
+
     start() {
         wx.vibrateShort();
+        this.getData();
         const timer = setInterval(() => {
             const list = this.data.textAreaValueList;
             const r = Math.ceil(Math.random() * list.length);

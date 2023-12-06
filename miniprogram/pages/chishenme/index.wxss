@@ -12,7 +12,7 @@ page {
     height: 100%;
     background-color: #eeeeee;
     background-size: 100% 100%;
-    background-image: url('https://lzengp.top/img/bg.png');
+    background-image: url('https://www.lzengp.top/static/bg.3c795d33.png');
 }
 
 .title {
